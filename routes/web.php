@@ -29,3 +29,5 @@ Route::post('/posts', 'App\Http\Controllers\PostController@store');
 
 Route::get('/leaveform', 'App\Http\Controllers\LeaveformController@index')->name('leaveform');
 Route::post('/leaveform', 'App\Http\Controllers\LeaveformController@store');
+
+Route::get('/viewhistory', 'App\Http\Controllers\ViewhistoryController@index')->name('viewhistory');

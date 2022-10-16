@@ -28,7 +28,7 @@
       <a class="nav-link active"  href="{{ route('leaveform') }}">Apply For Leave</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active"  href="#">View Leave History</a>
+      <a class="nav-link active"  href="{{ route('viewhistory') }}">View Leave History</a>
     </li>
     @endauth
 
