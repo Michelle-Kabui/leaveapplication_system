@@ -25,9 +25,12 @@
     </li>
     @endauth
 
+
+    @guest
     <li class="nav-item">
       <a class="nav-link active"  href="{{ route('home') }}">Home</a>
     </li>
+    @endguest
 
   </ul>
   <ul class="nav justify-content-end navbar-nav ms-auto">
