@@ -7,7 +7,11 @@
 <title>View Student Records</title>
 </head>
 <body>
-<table border = "3" class="table table-success table-striped">
+
+<div class="p-4">
+
+<h1>LEAVE HISTORY</h1>
+<table border = "0" class="table table-striped">
 <tr>
 <td>User ID</td>
 <td>Email</td>
@@ -33,6 +37,8 @@
 </tr>
 @endforeach
 </table>
+</div>
+
 </body>
 </html>
 @endsection
