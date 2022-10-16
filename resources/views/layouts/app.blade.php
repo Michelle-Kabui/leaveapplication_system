@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>leaveout_portal</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="resources/css/app.css">
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
@@ -14,14 +15,20 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-light bg-light mb-6">
-  <a class="navbar-brand" href="#">MY SCHOOL</a>
+  <a class="navbar-brand" href="#">AA MANUFACTURERS</a>
   <ul class="navbar-nav">
     @auth
     <li class="nav-item">
       <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link active"  href="{{ route('posts') }}">Posts</a>
+    </li> -->
+    <li class="nav-item">
+      <a class="nav-link active"  href="{{ route('leaveform') }}">Apply For Leave</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active"  href="#">View Leave History</a>
     </li>
     @endauth
 
@@ -61,15 +68,6 @@
       
 </ul>
 </nav>
-@auth
-<div id="sidebar-wrapper">
-  <ul class="sidebar-nav">
-    <li><a href="#">Dashboard</a></li>
-    <li><a href="#">Apply For Leave</a></li>
-    <li><a href="#">View Leave History</a></li>
-  </ul>
-</div>
-@endauth
 
 
     @yield('content')

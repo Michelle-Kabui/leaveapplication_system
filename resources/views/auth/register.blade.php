@@ -39,6 +39,23 @@
                 @enderror
             </div>
             <div class="form-group mb-3">
+                <label for="department">Department</label>
+                <input type="text" class="form-control @error('department') border border-danger @enderror" id="department" name="department" >
+              
+                @error('department')
+                    <div class="fw-light text-danger" >
+                        {{$message}}
+
+                    </div>
+                @enderror
+            </div>
+            <div class="form-group mb-3">
+                <label for="av_days">Number Of Available Leave Days</label>
+                <input type="number" class="form-control" id="av_days" name="av_days" value="30" >
+              
+            </div>
+            
+            <div class="form-group mb-3">
                 <label for="password">Password</label>
                 <input type="password" class="form-control @error('password') border border-danger @enderror" id="password" name="password" >
             

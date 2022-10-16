@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\LeaveformController;
 
 
 Route::get('/',function(){
@@ -26,3 +27,5 @@ Route::post('/logout', 'App\Http\Controllers\Auth\LogoutController@store')->name
 Route::get('/posts', 'App\Http\Controllers\PostController@index')->name('posts');
 Route::post('/posts', 'App\Http\Controllers\PostController@store');
 
+Route::get('/leaveform', 'App\Http\Controllers\LeaveformController@index')->name('leaveform');
+Route::post('/leaveform', 'App\Http\Controllers\LeaveformController@store');

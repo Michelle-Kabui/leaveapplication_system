@@ -22,6 +22,8 @@ class User extends Authenticatable
         'email',
         'password',
         'username',
+        'department',
+        'av_days',
     ];
 
     /**
@@ -42,4 +44,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function leaveform(){
+        return $this-> hasMany(Leaveform::class);
+    }
 }

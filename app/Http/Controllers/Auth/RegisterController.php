@@ -27,6 +27,9 @@ class RegisterController extends Controller
             'username'=> 'required|max:255',
             'email'=> 'required|max:255',
             'password'=> 'required|confirmed',
+            'department'=> 'required|max:255',
+            'av_days'=> 'required|max:255',
+
         ]);
 
         User::create(
@@ -34,6 +37,8 @@ class RegisterController extends Controller
                 'name' => $request -> name,
                 'email' => $request -> email,
                 'username' => $request -> username,
+                'department' => $request -> department,
+                'av_days' => $request -> av_days,
                 'password' => Hash::make($request -> password),
             ]
         );
