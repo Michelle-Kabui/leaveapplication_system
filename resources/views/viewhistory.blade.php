@@ -7,7 +7,7 @@
 <title>View Student Records</title>
 </head>
 <body>
-<table border = "3">
+<table border = "3" class="table table-success table-striped">
 <tr>
 <td>User ID</td>
 <td>Email</td>
