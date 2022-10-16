@@ -16,15 +16,19 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light mb-6">
   <a class="navbar-brand" href="#">MY SCHOOL</a>
   <ul class="navbar-nav">
+    @auth
     <li class="nav-item">
       <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active"  href="{{ route('home') }}">Home</a>
-    </li>
-    <li class="nav-item">
       <a class="nav-link active"  href="{{ route('posts') }}">Posts</a>
     </li>
+    @endauth
+
+    <li class="nav-item">
+      <a class="nav-link active"  href="{{ route('home') }}">Home</a>
+    </li>
+
   </ul>
   <ul class="nav justify-content-end navbar-nav ms-auto">
 
