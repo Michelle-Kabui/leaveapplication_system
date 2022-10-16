@@ -26,20 +26,6 @@
       <a class="nav-link active"  href="{{ route('posts') }}">Posts</a>
     </li>
   </ul>
-  <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto ">
-      <a class="nav-item nav-link active" href="#">Home </a>
-      <a class="nav-item nav-link" href="#">Account</a>
-      <a class="nav-item nav-link" href="{{route('login')}}">Login</a>
-      <a class="nav-item nav-link" href="{{route('register')}}">Register</a>
-      <div class="">
-        <form action="{{route('logout')}}" method="post">
-      {{ csrf_field() }}
-        <button class="btn btn-light">Logout</button>
-      </form>
-      </div>  
-    </div>
-  </div> -->
   <ul class="nav justify-content-end navbar-nav ms-auto">
 
     @auth
