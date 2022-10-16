@@ -54,6 +54,16 @@
       
 </ul>
 </nav>
+@auth
+<div id="sidebar-wrapper">
+  <ul class="sidebar-nav">
+    <li><a href="#">Dashboard</a></li>
+    <li><a href="#">Apply For Leave</a></li>
+    <li><a href="#">View Leave History</a></li>
+  </ul>
+</div>
+@endauth
+
 
     @yield('content')
 </body>
