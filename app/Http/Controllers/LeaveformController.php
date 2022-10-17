@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DateTime;
+use DB;
 
 class LeaveformController extends Controller
 {
@@ -29,18 +30,25 @@ class LeaveformController extends Controller
                 $dayss = intval(($end_date - $start_date)/60/60/24);
 
 
+                //gets current date
                 $date = date('Y-m-d');
                 $prev_date = date('Y-m-d', strtotime($date .' -1 day'));
                 $next_date = date('Y-m-d', strtotime($date .' +1 day'));
 
+                //condition to ensure user selects correct date
                 if(($request->from_date)<$date || ($request->to_date)<$date || ($request->to_date)<($request->from_date)){
                     return back()-> with('status', 'Please select valid dates');
                     
                 }
 
+                //finds the difference between the users available days and the days he/she will be on leave
                 $available_days = auth()->user()->av_days;
                 $days_left = $available_days-$dayss;
-                dd($days_left);
+
+                //updates users table
+                DB::table('users')
+                    ->where('email', auth()->user()->email)
+                    ->update(['av_days' => $days_left]);
 
         
         $this -> validate($request, [
