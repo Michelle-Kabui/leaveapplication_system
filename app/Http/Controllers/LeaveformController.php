@@ -38,6 +38,10 @@ class LeaveformController extends Controller
                     
                 }
 
+                $available_days = auth()->user()->av_days;
+                $days_left = $available_days-$dayss;
+                dd($days_left);
+
         
         $this -> validate($request, [
             'email'=> 'required|max:255',
