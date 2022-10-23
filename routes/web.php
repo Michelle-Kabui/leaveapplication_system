@@ -33,7 +33,7 @@ Route::post('/leaveform', 'App\Http\Controllers\LeaveformController@store');
 Route::get('/viewhistory', 'App\Http\Controllers\ViewhistoryController@index')->name('viewhistory');
 
 
-Route::prefix('admin')->group(function(){
+Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
-    Route::get('/dashboard', ('App\Http\Controllers\Admin\AdminDashboardController@index'));
+    Route::get('/dashboard', ('App\Http\Controllers\Admin\AdminDashboardController@index') );
 });

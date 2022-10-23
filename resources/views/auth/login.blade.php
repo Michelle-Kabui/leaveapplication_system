@@ -1,12 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="p-5">
-        <h1>LOGIN PAGE</h1>
+    <div class="text-danger">
         @if (session('status'))
             {{ session('status') }}
         @endif
-
+    </div>
+    <div class="p-5">
+        <h1>LOGIN PAGE</h1>
+        <div class="text-danger">
+            @if (session('status'))
+                {{ session('status') }}
+            @endif
+        </div>
         <form action="{{route('login')}}" method="post">
             {{ csrf_field() }} 
     
