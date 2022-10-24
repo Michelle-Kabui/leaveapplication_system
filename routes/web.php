@@ -5,6 +5,8 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\LeaveformController;
+use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\Admin\LeavesController;
 
 
 Route::get('/',function(){
@@ -36,4 +38,23 @@ Route::get('/viewhistory', 'App\Http\Controllers\ViewhistoryController@index')->
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
     Route::get('/dashboard', ('App\Http\Controllers\Admin\AdminDashboardController@index') );
+
+    Route::get('/department', ('App\Http\Controllers\Admin\DepartmentController@index') ); //view company departments
+    Route::get('/add-department', ('App\Http\Controllers\Admin\DepartmentController@create'));
+    Route::post('/add-department', ('App\Http\Controllers\Admin\DepartmentController@store'));
+
+    Route::get('/add-leave', ('App\Http\Controllers\Admin\LeavesController@create'));
+    Route::post('/add-leave', ('App\Http\Controllers\Admin\LeavesController@store'));
+    Route::get('/leave', ('App\Http\Controllers\Admin\LeavesController@index') ); // view leave categories
+    Route::get('/viewleaves', 'App\Http\Controllers\Admin\LeavesController@leaves'); //view all leaves
+    Route::get('/viewpleaves', 'App\Http\Controllers\Admin\LeavesController@pleaves'); //view pending leaves only
+    Route::get('/viewaleaves', 'App\Http\Controllers\Admin\LeavesController@aleaves'); //view approved leaves only
+    Route::get('/viewrleaves', 'App\Http\Controllers\Admin\LeavesController@rleaves'); //view rejected leaves only
+
+    Route::get('/viewhod', 'App\Http\Controllers\Admin\ViewhodController@index'); // View hod's only
+
+    Route::get('/viewusers', 'App\Http\Controllers\Admin\ViewusersController@index'); //View staff members only
+    Route::get('/edit-user/{id}', 'App\Http\Controllers\Admin\ViewusersController@edit'); // Edit Staff member details
+    Route::put('/update-user/{id}', 'App\Http\Controllers\Admin\ViewusersController@update'); // Update member details
+
 });

@@ -11,7 +11,7 @@ class RegisterController extends Controller
 {
 
     public function __construct(){
-        $this->middleware(['guest']);
+        $this->middleware(['auth']);
     }
 
     public function index()
@@ -29,6 +29,7 @@ class RegisterController extends Controller
             'password'=> 'required|confirmed',
             'department'=> 'required|max:255',
             'av_days'=> 'required|max:255',
+            'role_as'=> 'nullable|max:255',
 
         ]);
 
@@ -40,12 +41,14 @@ class RegisterController extends Controller
                 'department' => $request -> department,
                 'av_days' => $request -> av_days,
                 'password' => Hash::make($request -> password),
+                'role_as' => $request -> role_as,
             ]
         );
 
-        auth() -> attempt($request -> only('email', 'password'));
+        //sign user in after registration
+        //auth() -> attempt($request -> only('email', 'password'));
 
-        return redirect()->route('dashboard');
+        return redirect('/register')->with('status','User added successfully');
         
         
         

@@ -1,8 +1,18 @@
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
-    <div class="p-5">
-        <h1>REGISTRATION PAGE</h1>
+<div class="container-fluid px-4">
+
+    <div class="card mt-4">
+        <div class="card-header">
+            <h4 class="mt-4">Add A New User</h4>
+        </div>
+        <div class="card-body">
+        <div class="text-success">
+                @if (session('status'))
+                {{ session('status') }}
+            @endif
+        </div>
         <form action="{{route('register')}}" method="post">
             {{ csrf_field() }} 
             <div class="form-group mb-3">
@@ -49,6 +59,16 @@
                     </div>
                 @enderror
             </div>
+            
+            <div class="form-group mb-3">
+                <label for="role_as">Role</label>
+                <select name="role_as" id="role_as" class="form-control">
+                    <option value="0">User</option>
+                    <option value="1">Admin</option>
+                    <option value="2">HOD</option>
+                </select>
+            </div>
+
             <div class="form-group mb-3">
                 <label for="av_days">Number Of Available Leave Days</label>
                 <input type="number" class="form-control" id="av_days" name="av_days" value="30" >
@@ -79,10 +99,11 @@
             </div>
 
             
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-success">Submit</button>
             <button type="reset" class="btn btn-danger">Cancel</button>
 
         </form>
-
-    </div>
+</div>
+</div>
+</div>
 @endsection
