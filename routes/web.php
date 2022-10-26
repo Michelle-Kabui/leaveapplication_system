@@ -52,6 +52,8 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::get('/viewrleaves', 'App\Http\Controllers\Admin\LeavesController@rleaves'); //view rejected leaves only
 
     Route::get('/viewhod', 'App\Http\Controllers\Admin\ViewhodController@index'); // View hod's only
+    Route::get('/edit-hod/{id}', 'App\Http\Controllers\Admin\ViewhodController@edit'); // Edit Staff member details
+    Route::put('/update-hod/{id}', 'App\Http\Controllers\Admin\ViewhodController@update'); // Update member details
 
     Route::get('/viewusers', 'App\Http\Controllers\Admin\ViewusersController@index'); //View staff members only
     Route::get('/edit-user/{id}', 'App\Http\Controllers\Admin\ViewusersController@edit'); // Edit Staff member details

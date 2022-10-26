@@ -63,6 +63,7 @@
             <div class="form-group mb-3">
                 <label for="role_as">Role</label>
                 <select name="role_as" id="role_as" class="form-control">
+                    <option value="" selected disabled> Select Role</option>
                     <option value="0">User</option>
                     <option value="1">Admin</option>
                     <option value="2">HOD</option>

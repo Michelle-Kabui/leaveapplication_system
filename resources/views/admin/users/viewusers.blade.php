@@ -9,6 +9,11 @@
 <body>
 
 <div class="container-fluid px-4">
+<div class="text-success">
+            @if (session('status'))
+                {{ session('status') }}
+            @endif
+        </div>
     <div class="card-header">
         <h1>ALL STAFF MEMBERS</h1>
     </div>

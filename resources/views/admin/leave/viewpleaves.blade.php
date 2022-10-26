@@ -34,6 +34,9 @@
 <td>{{ $user->status }}</td>
 <td>{{ $user->adminRemarks }}</td>
 <td>{{ $user->numDays }}</td>
+<td>
+    <a href="#" class="btn btn-success">Manage Leave</a>
+</td>
 </tr>
 @endforeach
 </table>
