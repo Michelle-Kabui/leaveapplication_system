@@ -14,7 +14,7 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-light bg-light mb-6">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-6">
   <a class="navbar-brand" href="#">AA MANUFACTURERS</a>
   <ul class="navbar-nav">
     @auth

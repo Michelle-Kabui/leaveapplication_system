@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminMiddleware
+class HodMiddleware
 {
     /**
      * Handle an incoming request.
@@ -18,22 +18,21 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next)
     {
         if(Auth::check()){
-            if(Auth::user()->role_as=='1'){
+            if(Auth::user()->role_as=='2'){
                 // 1 -> admin
                 // 0 -> user
                 return $next($request);
             }
-            else if(Auth::user()->role_as=='2'){
-                return redirect('hod/dashboard')->with('status','Access denied. You are not an administrator');
+            else if(Auth::user()->role_as=='1'){
+                return redirect('admin/dashboard')->with('status','Access denied. You are not a HOD');
             }
             else{
-                return redirect('/dashboard')->with('status','Access denied. You are not an administrator');  
+                return redirect('/dashboard')->with('status','Access denied. You are not a HOD');  
             }
         }
         else{
 
             return redirect('/login')->with('status','Please login first');
         }
-        
     }
 }

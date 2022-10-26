@@ -60,3 +60,19 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::put('/update-user/{id}', 'App\Http\Controllers\Admin\ViewusersController@update'); // Update member details
 
 });
+
+Route::prefix('hod')->middleware(['auth','isHod'])->group(function(){
+
+    Route::get('/dashboard', ('App\Http\Controllers\Hod\HodDashboardController@index') );
+
+    Route::get('/viewusers', 'App\Http\Controllers\Hod\ViewusersController@index'); //View staff members only
+    Route::get('/edit-user/{id}', 'App\Http\Controllers\Hod\ViewusersController@edit'); // Edit Staff member details
+    Route::put('/update-user/{id}', 'App\Http\Controllers\Hod\ViewusersController@update'); // Update member details
+
+    Route::get('/viewleaves', 'App\Http\Controllers\Hod\LeavesController@leaves'); //view all leaves
+    Route::get('/viewpleaves', 'App\Http\Controllers\Hod\LeavesController@pleaves'); //view pending leaves only
+    Route::get('/viewaleaves', 'App\Http\Controllers\Hod\LeavesController@aleaves'); //view approved leaves only
+    Route::get('/viewrleaves', 'App\Http\Controllers\Hod\LeavesController@rleaves'); //view rejected leaves only
+
+
+});
