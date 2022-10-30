@@ -50,6 +50,8 @@ class LeaveformController extends Controller
                     ->where('email', auth()->user()->email)
                     ->update(['av_days' => $days_left]);
 
+                $adminResponse = "waiting for response";
+
         
         $this -> validate($request, [
             'email'=> 'required|max:255',
@@ -58,6 +60,8 @@ class LeaveformController extends Controller
             'from_date'=> 'required|max:255',
             'description'=> 'required|max:255',
             'status'=> 'required|max:255',
+            'department'=> 'required|max:255',
+            'adminRemarks' => 'nullable|max:255',
 
         ]);
 
@@ -70,6 +74,8 @@ class LeaveformController extends Controller
                 'description' => $request -> description,
                 'status' => $request -> status,
                 'numDays' => $dayss,
+                'department'=> $request->department,
+                'adminRemarks'=> $adminResponse,
 
                 
             ]

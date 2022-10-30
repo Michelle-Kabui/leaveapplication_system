@@ -74,5 +74,8 @@ Route::prefix('hod')->middleware(['auth','isHod'])->group(function(){
     Route::get('/viewaleaves', 'App\Http\Controllers\Hod\LeavesController@aleaves'); //view approved leaves only
     Route::get('/viewrleaves', 'App\Http\Controllers\Hod\LeavesController@rleaves'); //view rejected leaves only
 
-
+    Route::get('/manage-leave/{id}','App\Http\Controllers\Hod\LeavesController@edit'); //manage leave
+    Route::put('/approve-leave/{id}','App\Http\Controllers\Hod\LeavesController@approve');
+    Route::put('/decline-leave/{id}','App\Http\Controllers\Hod\LeavesController@decline');
+    Route::put('/update-leave/{id}','App\Http\Controllers\Hod\LeavesController@update');
 });

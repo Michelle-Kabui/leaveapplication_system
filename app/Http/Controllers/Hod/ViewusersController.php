@@ -11,7 +11,7 @@ class ViewusersController extends Controller
 {
     public function index(Request $request){
         $email = $request->email;
-        $users = DB::select('select * from users where role_as="0"');
+        $users = DB::select('select * from users where role_as="0" and department = "'.auth()->user()->department.'"');
         return view('hod.users.viewusers',['users'=>$users]);
     }
     public function edit($id){

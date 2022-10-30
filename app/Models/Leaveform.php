@@ -17,5 +17,7 @@ class Leaveform extends Model
         'description',
         'status',
         'numDays',
+        'department',
+        'adminRemarks',
     ];
 }

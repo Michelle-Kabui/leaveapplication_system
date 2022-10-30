@@ -1,16 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.master2')
 
 @section('content')
-
-    <?php
-    $date = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
-    $prev_date = date('Y-m-d', strtotime($date .' -1 day'));
-    $next_date = date('Y-m-d', strtotime($date .' +1 day'));
-
-
-    
-
-    ?>
     
     <div class="p-3">
         <h1>LEAVE FORM</h1>
@@ -20,12 +10,13 @@
         @endif
         </div>
         
-        <form action="{{route('leaveform')}}" method="post">
+        <form action="{{url('hod/update-leave/'.$user->id)}}" method="post">
             {{ csrf_field() }} 
+            @method('PUT')
             <div class="form-group mb-3">
-                <label for="email" hidden>Email</label>
+                <label for="email" >Email</label>
                 <input type="text" class="form-control  @error('email') border border-danger @enderror" id="email" name="email"
-                value="{{ auth()->user()->email }}" hidden >
+                value="{{$user->email}}" disabled>
 
                 @error('email')
                     <div class="fw-light text-danger" >
@@ -36,20 +27,8 @@
             </div>
 
             <div class="form-group mb-3">
-                <label for="department" hidden>Department</label>
-                <input type="text" class="form-control" id="department" name="department"
-                value="{{ auth()->user()->department }}" hidden >
-            </div>
-
-            <div class="form-group mb-3">
                 <label for="leavetype">Leave Type</label>
-                <select name="leavetype" id="leavetype" class="form-control @error('username') border border-danger @enderror">
-                    <option value="Casual Leave">Casual Leave</option>
-                    <option value="Sick Leave">Sick Leave</option>
-                    <option value="Maternity Leave">Maternity Leave</option>
-                    <option value="Paternity Leave">Paternity Leave</option>
-                    <option value="Compensatory Leave">Compensatory Leave</option>
-                </select>
+                <input type="text" value="{{$user->leavetype}}" id="leavetype" name="leavetype" disabled>
               
                 @error('leavetype')
                     <div class="fw-light text-danger" >
@@ -61,7 +40,8 @@
 
             <div class="form-group mb-3">
                 <label for="from_date">From Date</label>
-                <input type="date" class="form-control @error('from_date') border border-danger @enderror" id="from_date" name="from_date">
+                <input type="date" class="form-control @error('from_date') border border-danger @enderror" id="from_date" name="from_date"
+                value="{{$user->from_date}}" disabled>
             
                 @error('from_date')
                     <div class="fw-light text-danger" >
@@ -73,7 +53,8 @@
 
             <div class="form-group mb-3">
                 <label for="to_date">To Date</label>
-                <input type="date" class="form-control @error('to_date') border border-danger @enderror" id="to_date" name="to_date">
+                <input type="date" class="form-control @error('to_date') border border-danger @enderror" id="to_date" name="to_date"
+                value="{{$user->to_date}}" disabled>
             
                 @error('to_date')
                     <div class="fw-light text-danger" >
@@ -85,8 +66,8 @@
             
             <div class="form-group mb-3">
                 <label for="description">Description</label>
-                <textarea name="description" id="description" cols="30" rows="5" class=" p-4 bg-info bg-opacity-10 form-control @error('description') border border-danger @enderror"
-                placeholder="Reason for leave... "></textarea>
+                <input type="text" class="form-control" id="description" name="description"
+                value="{{$user->description}}" disabled>
 
                 @error('description')
                     <div class="fw-light text-danger" >
@@ -98,13 +79,27 @@
             <div class="form-group mb-3">
                 <label for="status">Status</label>
                 <input type="text" class="form-control" id="status" name="status"
-                value="pending" >
+                value="{{$user->status}}" disabled >
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="numDays">Number of Days taken</label>
+                <input type="text" class="form-control" id="numDays" name="numDays"
+                value="{{$user->numDays}}" disabled >
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="adminRemarks">Admin Remarks</label>
+                <input type="text" class="form-control" id="adminRemarks" name="adminRemarks" 
+                value="{{$user->adminRemarks}}">
             </div>
 
 
             
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="reset" class="btn btn-danger">Cancel</button>
+            <button id="approve" name ="approve" type="submit" class="btn btn-primary"> Approve </button>
+            <button id="decline" name ="decline" type="submit" class="btn btn-danger"> Decline </button>
+
+           
 
         </form>
 

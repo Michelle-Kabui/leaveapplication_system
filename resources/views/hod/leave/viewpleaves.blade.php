@@ -8,9 +8,17 @@
 </head>
 <body>
 
-<div class="p-4">
+<div class="container-fluid px-4">
+<div class="text-success">
+    @if (session('status'))
+        {{ session('status') }}
+    @endif
+</div>
 
+<div class="card-header">
 <h1>ALL PENDING LEAVE APPLICATIONS</h1>
+</div>
+<div class="card-body">
 <table border = "0" class="table table-striped">
 <tr>
 <td>User ID</td>
@@ -35,11 +43,12 @@
 <td>{{ $user->adminRemarks }}</td>
 <td>{{ $user->numDays }}</td>
 <td>
-    <a href="#" class="btn btn-success">Manage Leave</a>
+    <a href="{{url('hod/manage-leave/'.$user->id)}}" class="btn btn-success">Manage Leave</a>
 </td>
 </tr>
 @endforeach
 </table>
+</div>
 </div>
 
 </body>
