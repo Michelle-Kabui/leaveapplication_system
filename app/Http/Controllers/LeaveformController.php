@@ -77,7 +77,7 @@ class LeaveformController extends Controller
                 'status' => $request -> status,
                 'department'=> $request->department,
                 'adminRemarks'=> $adminResponse,
-
+                'numDays'=>$dayss,
                 
             ]
         );

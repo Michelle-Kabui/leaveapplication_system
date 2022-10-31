@@ -1,15 +1,35 @@
 @extends('layouts.master')
 
 @section('content')
+<!DOCTPE html>
+<html>
+<head>
+<title>View All Departments</title>
+</head>
+<body>
 
-<div class="container-fluid px-4">
-    <h1 class="mt-4">Departments</h1>
-    <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Dashboard</li>
-    </ol>
-    <div class="row">
+<div>
+    
+</div>
+<div class="p-4 card-body">
 
-    </div>
+<h1>ALL DEPARTMENTS</h1>
+<table border = "0" class="table table-striped">
+<tr>
+<td> ID</td>
+<td>Department Name</td>
+<td>Shortform</td>
+</tr>
+@foreach ($departments as $department)
+<tr>
+<td>{{ $department->id }}</td>
+<td>{{ $department->departmentname }}</td>
+<td>{{ $department->shortform }}</td>
+</tr>
+@endforeach
+</table>
 </div>
 
+</body>
+</html>
 @endsection

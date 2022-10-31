@@ -74,10 +74,15 @@ class LeavesController extends Controller
                     ->where('email', Leaveform::find($id)->email)
                     ->update(['av_days' => $days_left]);
 
+            DB::table('users')
+                    ->where('email', Leaveform::find($id)->email)
+                    ->update(['status' => "away"]);
+
             //approving
             $leave -> status = "approved"; //Approved
             $leave -> adminRemarks = $request -> adminRemarks;
             $leave->save();
+
             return redirect('hod/viewpleaves')->with('status','Leave Approved Successfully');
         }
         else{

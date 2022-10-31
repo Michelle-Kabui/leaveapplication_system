@@ -15,7 +15,8 @@ class LeavesController extends Controller
 
     public function index()
     {
-        return view('admin.leave.index');
+        $leaves = DB::select('select * from leavetype ');
+        return view('admin.leave.index', ['leaves'=>$leaves]);
     }
     public function create(){
         return view('admin.leave.create');

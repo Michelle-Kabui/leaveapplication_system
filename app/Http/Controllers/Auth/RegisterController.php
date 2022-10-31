@@ -33,6 +33,7 @@ class RegisterController extends Controller
 
         ]);
 
+        $userstatus = 'active';
         User::create(
             [
                 'name' => $request -> name,
@@ -42,6 +43,7 @@ class RegisterController extends Controller
                 'av_days' => $request -> av_days,
                 'password' => Hash::make($request -> password),
                 'role_as' => $request -> role_as,
+                'status' => $userstatus,
             ]
         );
 

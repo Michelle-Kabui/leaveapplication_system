@@ -1,15 +1,35 @@
 @extends('layouts.master')
 
 @section('content')
+<!DOCTPE html>
+<html>
+<head>
+<title>View All Departments</title>
+</head>
+<body>
 
-<div class="container-fluid px-4">
-    <h1 class="mt-4">Leaves</h1>
-    <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Dashboard</li>
-    </ol>
-    <div class="row">
+<div>
+    
+</div>
+<div class="p-4 card-body">
 
-    </div>
+<h1>ALL DEPARTMENTS</h1>
+<table border = "0" class="table table-striped">
+<tr>
+<td> ID</td>
+<td>Leave Type</td>
+<td>Duration</td>
+</tr>
+@foreach ($leaves as $leave)
+<tr>
+<td>{{ $leave->id }}</td>
+<td>{{ $leave->LeaveType }}</td>
+<td>{{ $leave->Duration }}</td>
+</tr>
+@endforeach
+</table>
 </div>
 
+</body>
+</html>
 @endsection

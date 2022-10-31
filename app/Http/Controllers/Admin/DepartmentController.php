@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Departments;
+use DB;
 
 class DepartmentController extends Controller
 {
     public function index(){
-        return view('admin.department.index');
+        $departments = DB::select('select * from departments');
+        return view('admin.department.index', ['departments'=>$departments]);
     }
     public function create(){
         return view('admin.department.create');
