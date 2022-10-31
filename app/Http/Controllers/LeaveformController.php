@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DateTime;
 use DB;
+use App\Models\Leaves;
+use App\Http\Controllers\Illuminate\Database\Query\Builder;
 
 class LeaveformController extends Controller
 {
@@ -46,9 +48,9 @@ class LeaveformController extends Controller
                 $days_left = $available_days-$dayss;
 
                 //updates users table
-                DB::table('users')
-                    ->where('email', auth()->user()->email)
-                    ->update(['av_days' => $days_left]);
+                // DB::table('users')
+                //     ->where('email', auth()->user()->email)
+                //     ->update(['av_days' => $days_left]);
 
                 $adminResponse = "waiting for response";
 
@@ -73,7 +75,6 @@ class LeaveformController extends Controller
                 'from_date' => $request-> from_date,
                 'description' => $request -> description,
                 'status' => $request -> status,
-                'numDays' => $dayss,
                 'department'=> $request->department,
                 'adminRemarks'=> $adminResponse,
 

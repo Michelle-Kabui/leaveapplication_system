@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('leavetype', function (Blueprint $table) {
             $table->id();
             $table->string("LeaveType");
-            $table->string("Description");
+            $table->integer("Duration");
             $table->timestamps();
         });
     }
