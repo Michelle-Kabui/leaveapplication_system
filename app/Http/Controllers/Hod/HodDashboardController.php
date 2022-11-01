@@ -11,10 +11,13 @@ class HodDashboardController extends Controller
 {
     public function index(){
 
-        // $users = User::where('role_as','0')->count;
-        // $leaves = Leaveform::where('department',auth()->user()->department);
-        // $pleaves = Leaveform::where('status','pending');
+        $users = User::where('role_as','0')->count(); 
+        $leaves = Leaveform::where('department',auth()->user()->department)->count();
+        $pleaves = Leaveform::where('status','pending')->where('department',auth()->user()->department)->count();
+        $onleave = User::where('status','away')->count();
+        $atwork = User::where('status','active')->count();
 
-        return view('hod.dashboard');
+        return view('hod.dashboard',compact('users','onleave','atwork','pleaves'));
     }
 }
+ 

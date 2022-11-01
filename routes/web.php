@@ -58,6 +58,9 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::get('/viewusers', 'App\Http\Controllers\Admin\ViewusersController@index'); //View staff members only
     Route::get('/edit-user/{id}', 'App\Http\Controllers\Admin\ViewusersController@edit'); // Edit Staff member details
     Route::put('/update-user/{id}', 'App\Http\Controllers\Admin\ViewusersController@update'); // Update member details
+    Route::get('/usersonleave', 'App\Http\Controllers\Admin\ViewusersController@away');
+    Route::get('/usersatwork', 'App\Http\Controllers\Admin\ViewusersController@active');
+
 
 });
 

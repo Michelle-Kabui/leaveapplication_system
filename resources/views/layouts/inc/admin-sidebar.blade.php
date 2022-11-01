@@ -40,6 +40,8 @@
                                     <a class="nav-link" href="{{route('register')}}">New Staff</a>
                                     <a class="nav-link" href="{{url('admin/viewusers')}}">Manage Staff</a>
                                     <a class="nav-link" href="{{url('admin/viewhod')}}">Manage HOD</a>
+                                    <a class="nav-link" href="{{url('admin/usersonleave')}}">Employees on Leave</a>
+                                    <a class="nav-link" href="{{url('admin/usersatwork')}}">Employees at Work</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts">

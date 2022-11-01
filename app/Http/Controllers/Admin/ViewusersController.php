@@ -32,4 +32,12 @@ class ViewusersController extends Controller
 
         return redirect('admin/viewusers')->with('status','User details edited successfully');
     }
+    public function away(Request $request){
+        $users = DB::select('select * from users where status="away"');
+        return view('admin.users.viewaway',['users'=>$users]);
+    }
+    public function active(Request $request){
+        $users = DB::select('select * from users where status="active"');
+        return view('admin.users.viewatwork',['users'=>$users]);
+    }
 }

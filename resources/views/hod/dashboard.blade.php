@@ -12,7 +12,7 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">
                                         Total Employees
-                                        <h3>78</h3>
+                                        <h3>{{$users}}</h3>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
@@ -24,7 +24,7 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">
                                         Employees on Leave
-                                        <h5> </h5>
+                                        <h3>{{$onleave}}</h3>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
@@ -36,7 +36,7 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">
                                         Employees at work
-                                        <h5> </h5>
+                                        <h3>{{$atwork}}</h3>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="#">View Details</a>
@@ -48,10 +48,10 @@
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">
                                         Pending Leaves
-                                        <h5> </h5>
+                                        <h3>{{$pleaves}}</h3>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-white stretched-link" href="{{url('hod/viewpleaves')}}">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
