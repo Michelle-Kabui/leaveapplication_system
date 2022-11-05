@@ -32,6 +32,9 @@
 <td>
     <a href="{{url('admin/edit-hod/'.$user->id)}}" class="btn btn-success">Edit</a>
 </td>
+<td>
+    <a href="#" class="btn btn-danger">Delete</a>
+</td>
 </tr>
 @endforeach
 </table>

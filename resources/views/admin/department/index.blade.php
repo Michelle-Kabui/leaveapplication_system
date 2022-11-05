@@ -25,6 +25,12 @@
 <td>{{ $department->id }}</td>
 <td>{{ $department->departmentname }}</td>
 <td>{{ $department->shortform }}</td>
+<td>
+    <a href="#" class="btn btn-success">Edit</a>
+</td>
+<td>
+    <a href="#" class="btn btn-success">Delete</a>
+</td>
 </tr>
 @endforeach
 </table>

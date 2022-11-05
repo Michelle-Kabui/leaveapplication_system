@@ -71,6 +71,7 @@ Route::prefix('hod')->middleware(['auth','isHod'])->group(function(){
     Route::get('/viewusers', 'App\Http\Controllers\Hod\ViewusersController@index'); //View staff members only
     Route::get('/edit-user/{id}', 'App\Http\Controllers\Hod\ViewusersController@edit'); // Edit Staff member details
     Route::put('/update-user/{id}', 'App\Http\Controllers\Hod\ViewusersController@update'); // Update member details
+    Route::put('/delete-user/{id}', 'App\Http\Controllers\Hod\ViewusersController@update');
 
     Route::get('/viewleaves', 'App\Http\Controllers\Hod\LeavesController@leaves'); //view all leaves
     Route::get('/viewpleaves', 'App\Http\Controllers\Hod\LeavesController@pleaves'); //view pending leaves only

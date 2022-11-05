@@ -25,6 +25,12 @@
 <td>{{ $leave->id }}</td>
 <td>{{ $leave->LeaveType }}</td>
 <td>{{ $leave->Duration }}</td>
+<td>
+    <a href="#" class="btn btn-success">Edit</a>
+</td>
+<td>
+    <a href="#" class="btn btn-danger">Delete</a>
+</td>
 </tr>
 @endforeach
 </table>
