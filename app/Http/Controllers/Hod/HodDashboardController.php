@@ -14,8 +14,8 @@ class HodDashboardController extends Controller
         $users = User::where('role_as','0')->where('department',auth()->user()->department)->count(); 
         $leaves = Leaveform::where('department',auth()->user()->department)->count();
         $pleaves = Leaveform::where('status','pending')->where('department',auth()->user()->department)->count();
-        $onleave = User::where('status','away')->where('department',auth()->user()->department)->count();
-        $atwork = User::where('status','active')->where('department',auth()->user()->department)->count();
+        $onleave = User::where('status','away')->where('department',auth()->user()->department)->where('role_as','0')->count();
+        $atwork = User::where('status','active')->where('department',auth()->user()->department)->where('role_as','0')->count();
 
         return view('hod.dashboard',compact('users','onleave','atwork','pleaves'));
     }
