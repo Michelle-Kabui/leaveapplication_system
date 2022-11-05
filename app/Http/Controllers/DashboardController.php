@@ -11,6 +11,8 @@ class DashboardController extends Controller
     }
 
     public function index(){
-        return view('dashboard');
+        $daystaken = (30-auth()->user()->av_days);
+
+        return view('dashboard', compact('daystaken'));
     }
 }
