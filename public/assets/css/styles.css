@@ -4531,8 +4531,9 @@ textarea.form-control-lg {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 3px solid #15325D;
   border-radius: 0.25rem;
+  box-shadow: 12px 12px #15325D;
 }
 .card > hr {
   margin-right: 0;
@@ -11324,7 +11325,7 @@ body {
   display: flex;
 }
 #layoutSidenav #layoutSidenav_nav {
-  flex-basis: 225px;
+  flex-basis: 15vw;
   flex-shrink: 0;
   transition: transform 0.15s ease-in-out;
   z-index: 1038;
@@ -11449,9 +11450,9 @@ body {
 }
 .sb-sidenav .sb-sidenav-menu .nav .sb-sidenav-menu-heading {
   padding: 1.75rem 1rem 0.75rem;
-  font-size: 0.75rem;
+  font-size: 1vw;
   font-weight: bold;
-  text-transform: uppercase;
+  font-family: Inter;
 }
 .sb-sidenav .sb-sidenav-menu .nav .nav-link {
   display: flex;
@@ -11460,8 +11461,16 @@ body {
   padding-bottom: 0.75rem;
   position: relative;
 }
+.nav-link-active {
+  color: #EF2828;
+  background-color: #15325D;
+  border-radius: 15px;
+}
 .sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-nav-link-icon {
   font-size: 0.9rem;
+}
+.sb-nav-link-icon {
+  margin-bottom: 0.2vh;
 }
 .sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-sidenav-collapse-arrow {
   display: inline-block;
