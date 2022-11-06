@@ -4,7 +4,7 @@
 <!DOCTPE html>
 <html>
 <head>
-<title>View All Departments</title>
+<title>View All Leaves</title>
 </head>
 <body>
 
@@ -13,7 +13,7 @@
 </div>
 <div class="p-4 card-body">
 
-<h1>ALL DEPARTMENTS</h1>
+<h1>ALL LEAVES</h1>
 <table border = "0" class="table table-striped">
 <tr>
 <td> ID</td>

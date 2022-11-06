@@ -94,9 +94,9 @@
                 @enderror
             </div>
             <div class="form-group mb-3">
-                <label for="status">Status</label>
+                <label for="status" hidden>Status</label>
                 <input type="text" class="form-control" id="status" name="status"
-                value="pending" >
+                value="pending" hidden>
             </div>
 
 

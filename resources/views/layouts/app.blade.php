@@ -46,7 +46,7 @@
     @auth
       
       <li class="nav-item">
-        <a class="nav-link" href="#">[ {{ auth()->user()->name }} ]</a>
+        <a class="nav-link" href="{{url('user-profile')}}">[ {{ auth()->user()->name }} ]</a>
       </li>
       <li class="nav-item">
         <form action="{{route('logout')}}" method="post">

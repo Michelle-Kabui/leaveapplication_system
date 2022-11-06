@@ -34,6 +34,9 @@ Route::post('/leaveform', 'App\Http\Controllers\LeaveformController@store');
 
 Route::get('/viewhistory', 'App\Http\Controllers\ViewhistoryController@index')->name('viewhistory');
 
+Route::get('/posts', 'App\Http\Controllers\PostController@index')->name('posts');
+Route::post('/posts', 'App\Http\Controllers\PostController@store');
+
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
 
@@ -82,4 +85,9 @@ Route::prefix('hod')->middleware(['auth','isHod'])->group(function(){
     Route::put('/approve-leave/{id}','App\Http\Controllers\Hod\LeavesController@approve');
     Route::put('/decline-leave/{id}','App\Http\Controllers\Hod\LeavesController@decline');
     Route::put('/update-leave/{id}','App\Http\Controllers\Hod\LeavesController@update');
+});
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('profile','App\Http\Controllers\User\UserController@update');
+
 });

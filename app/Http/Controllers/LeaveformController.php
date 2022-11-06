@@ -8,6 +8,7 @@ use DateTime;
 use DB;
 use App\Models\Leaves;
 use App\Http\Controllers\Illuminate\Database\Query\Builder;
+use App\Models\Leaveform;
 
 class LeaveformController extends Controller
 {
@@ -39,9 +40,35 @@ class LeaveformController extends Controller
 
                 //condition to ensure user selects correct date
                 if(($request->from_date)<$date || ($request->to_date)<$date || ($request->to_date)<($request->from_date)){
-                    return back()-> with('status', 'Please select valid dates');
-                    
+                    return back()->with('status', 'Please select valid dates');   
                 }
+
+                
+                    if($request->leavetype == "Maternity Leave"){
+                        if($dayss>90){
+                            return back()->with('status', 'You have exceeded your available leave days');
+                        }
+                    }
+                    else if($request->leavetype == "Paternity Leave"){
+                        if($dayss>15){
+                            return back()->with('status', 'You have exceeded your available leave days');
+                        }
+                    }
+                    else{
+                        if($dayss>auth()->user()->av_days){
+                            return back()->with('status', 'You have exceeded your available leave days');
+                        }
+                    } 
+
+                    $nn = Leaveform::where('email',auth()->user()->email)->where("status","pending")->count();
+                    if(auth()->user()->status=="active"){
+                        if($nn>0){
+                            return back()->with('status', 'You already have a pending leave request');
+                        }
+                    }
+                    else{
+                        return back()->with('status', 'You cannot apply for leave while on leave');
+                    }
 
                 //finds the difference between the users available days and the days he/she will be on leave
                 $available_days = auth()->user()->av_days;
@@ -57,7 +84,7 @@ class LeaveformController extends Controller
         
         $this -> validate($request, [
             'email'=> 'required|max:255',
-            'leavetype'=> 'required|max:255',
+            'leavetype'=> 'required',
             'to_date'=> 'required|max:255',
             'from_date'=> 'required|max:255',
             'description'=> 'required|max:255',
@@ -70,7 +97,7 @@ class LeaveformController extends Controller
         $request->user()->leaveform()->create(
             [
                 'email' => $request -> email,
-                'leavetype' => $request-> leavetype,
+                'leavetype' => $request->leavetype,
                 'to_date' => $request-> to_date,
                 'from_date' => $request-> from_date,
                 'description' => $request -> description,
