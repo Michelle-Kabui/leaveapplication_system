@@ -1,10 +1,10 @@
 <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <nav class="sb-sidenav accordion" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="{{url('admin/dashboard')}}">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <a class="nav-link nav-link-active" style="color: #EF2828" href="{{url('admin/dashboard')}}">
+                                <div class="sb-nav-link-icon"><img class="" src="../dashboard-icon.svg" alt=""></div>
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Actions</div>

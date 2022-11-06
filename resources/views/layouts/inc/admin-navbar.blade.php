@@ -1,4 +1,5 @@
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md mb-6">
+    <img class="navbar-logo" src="../logo.svg" alt="">
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="{{url('admin/dashboard')}}">AA MANUFACTURERS</a>
             
