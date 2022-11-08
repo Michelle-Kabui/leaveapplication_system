@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Departments;
 
 class RegisterController extends Controller
 {
@@ -16,7 +17,9 @@ class RegisterController extends Controller
 
     public function index()
     {
-        return view('auth.register');
+        $departments = Departments::all('departmentname');
+        //$departments = Departments::all();
+        return view('auth.register' , compact('departments'));
     }
 
     public function store(Request $request)

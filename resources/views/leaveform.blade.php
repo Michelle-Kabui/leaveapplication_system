@@ -41,12 +41,10 @@
 
             <div class="form-group mb-3">
                 <label for="leavetype">Leave Type</label>
-                <select name="leavetype" id="leavetype" class="form-control @error('username') border border-danger @enderror">
-                    <option value="Casual Leave">Casual Leave</option>
-                    <option value="Sick Leave">Sick Leave</option>
-                    <option value="Maternity Leave">Maternity Leave</option>
-                    <option value="Paternity Leave">Paternity Leave</option>
-                    <option value="Compensatory Leave">Compensatory Leave</option>
+                <select name="leavetype" id="leavetype">
+                    @foreach ($leaves as $leave)
+                        <option value="{{$leave->LeaveType}}">{{$leave->LeaveType}}</option>
+                    @endforeach
                 </select>
               
                 @error('leavetype')

@@ -10,7 +10,7 @@ use App\Http\Controllers\Admin\LeavesController;
 
 
 Route::get('/',function(){
-    return view('home');
+    return view('auth/login');
 })->name('home');
 
 
@@ -36,6 +36,9 @@ Route::get('/viewhistory', 'App\Http\Controllers\ViewhistoryController@index')->
 
 Route::get('/posts', 'App\Http\Controllers\PostController@index')->name('posts');
 Route::post('/posts', 'App\Http\Controllers\PostController@store');
+
+Route::get('/privacy', 'App\Http\Controllers\DashboardController@privacy')->name('privacy');
+Route::get('/terms', 'App\Http\Controllers\DashboardController@terms')->name('terms');
 
 
 Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
@@ -63,6 +66,8 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::put('/update-user/{id}', 'App\Http\Controllers\Admin\ViewusersController@update'); // Update member details
     Route::get('/usersonleave', 'App\Http\Controllers\Admin\ViewusersController@away');
     Route::get('/usersatwork', 'App\Http\Controllers\Admin\ViewusersController@active');
+    
+    Route::put('/delete-user/{id}', 'App\Http\Controllers\Admin\ViewusersController@update');
 
 
 });
@@ -74,7 +79,7 @@ Route::prefix('hod')->middleware(['auth','isHod'])->group(function(){
     Route::get('/viewusers', 'App\Http\Controllers\Hod\ViewusersController@index'); //View staff members only
     Route::get('/edit-user/{id}', 'App\Http\Controllers\Hod\ViewusersController@edit'); // Edit Staff member details
     Route::put('/update-user/{id}', 'App\Http\Controllers\Hod\ViewusersController@update'); // Update member details
-    Route::put('/delete-user/{id}', 'App\Http\Controllers\Hod\ViewusersController@update');
+    //Route::put('/delete-user/{id}', 'App\Http\Controllers\Hod\ViewusersController@update');
 
     Route::get('/viewleaves', 'App\Http\Controllers\Hod\LeavesController@leaves'); //view all leaves
     Route::get('/viewpleaves', 'App\Http\Controllers\Hod\LeavesController@pleaves'); //view pending leaves only
@@ -88,6 +93,10 @@ Route::prefix('hod')->middleware(['auth','isHod'])->group(function(){
 });
 
 Route::middleware(['auth'])->group(function(){
-    Route::get('profile','App\Http\Controllers\User\UserController@update');
+    Route::get('profile','App\Http\Controllers\User\UserController@index');
 
+    Route::put('/update-user', 'App\Http\Controllers\User\UserController@update'); // Update member details
+
+    Route::get('change-password', 'App\Http\Controllers\User\UserController@passwordCreate');
+    Route::post('change-password', 'App\Http\Controllers\User\UserController@changePassword');
 });

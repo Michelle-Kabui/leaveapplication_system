@@ -50,8 +50,15 @@
             </div>
             <div class="form-group mb-3">
                 <label for="department">Department</label>
-                <input type="text" class="form-control @error('department') border border-danger @enderror" id="department" name="department" >
-              
+                {{-- <input type="text" class="form-control @error('department') border border-danger @enderror" id="department" name="department" > --}}
+                {{-- {!! Form::select('departmentname', $departments, ['class' => 'form-control m-bot15']) !!} --}}
+
+                <select name="department" id="department">
+                    @foreach ($departments as $department)
+                        <option value="{{$department->departmentname}}">{{$department->departmentname}}</option>
+                    @endforeach
+                </select>
+                
                 @error('department')
                     <div class="fw-light text-danger" >
                         {{$message}}

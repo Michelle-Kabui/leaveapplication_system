@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@guest
     <div class="text-danger">
         @if (session('status'))
             {{ session('status') }}
@@ -64,4 +65,5 @@
             </form>
         </div>
     </div>
+    @endguest
 @endsection

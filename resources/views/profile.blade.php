@@ -1,11 +1,13 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
 @section('content')
 <div class="container-fluid px-4">
 
     <div class="card mt-4">
         <div class="card-header">
-            <h4 class="mt-4">User Ngahu</h4>
+            <h4 class="mt-4">User Profile
+                <a href="{{url('change-password')}}" class="btn btn-primary float-end">Change Password</a>
+            </h4>
         </div>
         <div class="card-body">
         <div class="text-success">
@@ -13,11 +15,12 @@
                 {{ session('status') }}
             @endif
         </div>
-        <form action="{{route('register')}}" method="post">
+        <form action="{{url('update-user')}}" method="post">
             {{ csrf_field() }} 
+            @method('PUT')
             <div class="form-group mb-3">
                 <label for="name">Name</label>
-                <input type="text" class="form-control  @error('name') border border-danger @enderror" id="name" name="name" value="{{old('name')}}">
+                <input type="text" class="form-control  @error('name') border border-danger @enderror" id="name" name="name" value="{{auth()->user()->name}}" disabled>
 
                 @error('name')
                     <div class="fw-light text-danger" >
@@ -28,7 +31,7 @@
             </div>
             <div class="form-group mb-3">
                 <label for="username">Username</label>
-                <input type="text" class="form-control @error('username') border border-danger @enderror" id="username" name="username" value="{{old('username')}}">
+                <input type="text" class="form-control @error('username') border border-danger @enderror" id="username" name="username" value="{{auth()->user()->username}}" disabled>
               
                 @error('username')
                     <div class="fw-light text-danger" >
@@ -39,7 +42,7 @@
             </div>
             <div class="form-group mb-3">
                 <label for="email">Email</label>
-                <input type="text" class="form-control @error('email') border border-danger @enderror" id="email" name="email" value="{{old('email')}}">
+                <input type="text" class="form-control @error('email') border border-danger @enderror" id="email" name="email" value="{{auth()->user()->email}}" disabled>
             
                 @error('email')
                     <div class="fw-light text-danger" >
@@ -50,7 +53,7 @@
             </div>
             <div class="form-group mb-3">
                 <label for="department">Department</label>
-                <input type="text" class="form-control @error('department') border border-danger @enderror" id="department" name="department" >
+                <input type="text" class="form-control @error('department') border border-danger @enderror" id="department" name="department" value="{{auth()->user()->department}}" disabled>
               
                 @error('department')
                     <div class="fw-light text-danger" >
@@ -59,41 +62,85 @@
                     </div>
                 @enderror
             </div>
-            
             <div class="form-group mb-3">
-                <label for="role_as">Role</label>
-                <input type="text" class="form-control @error('role_as') border border-danger @enderror" id="role_as" name="role_as" >
-            </div>
-
-            <div class="form-group mb-3">
-                <label for="av_days">Number Of Available Leave Days</label>
-                <input type="number" class="form-control" id="av_days" name="av_days" value="30" >
+                <label for="tnumber">Telephone Number</label>
+                <input type="number" class="form-control @error('tnumber') border border-danger @enderror" id="tnumber" name="tnumber" value="{{auth()->user()->tnumber}}" >
               
-            </div>
-            
-            <div class="form-group mb-3">
-                <label for="password">Password</label>
-                <input type="password" class="form-control @error('password') border border-danger @enderror" id="password" name="password" >
-            
-                @error('password')
+                @error('tnumber')
                     <div class="fw-light text-danger" >
                         {{$message}}
 
                     </div>
                 @enderror
             </div>
-            
             <div class="form-group mb-3">
-                <label for="password_confirmation">Confirm Password</label>
-                <input type="password" class="form-control @error('password_confirmation') border border-danger @enderror" id="password_confirmation" name="password_confirmation">
-            
-                @error('password_confirmation')
+                <label for="address">Address</label>
+                <input type="text" class="form-control @error('address') border border-danger @enderror" id="address" name="address" value="{{auth()->user()->address}}" >
+              
+                @error('address')
                     <div class="fw-light text-danger" >
                         {{$message}}
 
                     </div>
                 @enderror
             </div>
+            <div class="form-group mb-3">
+                <label for="gender">Gender</label>
+                <input type="text" class="form-control @error('gender') border border-danger @enderror" id="gender" name="gender" value="{{auth()->user()->gender}}" >
+              
+                @error('gender')
+                    <div class="fw-light text-danger" >
+                        {{$message}}
+
+                    </div>
+                @enderror
+            </div>
+            <div class="form-group mb-3">
+                <label for="nationality">Nationality</label>
+                <input type="text" class="form-control @error('nationality') border border-danger @enderror" id="nationality" name="nationality" value="{{auth()->user()->nationality}}" >
+              
+                @error('nationality')
+                    <div class="fw-light text-danger" >
+                        {{$message}}
+
+                    </div>
+                @enderror
+            </div>
+            <div class="form-group mb-3">
+                <label for="IDno">National Id Number</label>
+                <input type="number" class="form-control @error('IDno') border border-danger @enderror" id="IDno" name="IDno" value="{{auth()->user()->IDno}}" >
+              
+                @error('IDno')
+                    <div class="fw-light text-danger" >
+                        {{$message}}
+
+                    </div>
+                @enderror
+            </div>
+            <h3>Emergency Contact</h3>
+            <div class="form-group mb-3">
+                <label for="ename">Name</label>
+                <input type="text" class="form-control @error('ename') border border-danger @enderror" id="ename" name="ename" value="{{auth()->user()->ename}}" >
+              
+                @error('ename')
+                    <div class="fw-light text-danger" >
+                        {{$message}}
+
+                    </div>
+                @enderror
+            </div>
+            <div class="form-group mb-3">
+                <label for="etnumber">Telephone Number</label>
+                <input type="text" class="form-control @error('etnumber') border border-danger @enderror" id="etnumber" name="etnumber" value="{{auth()->user()->etnumber}}" >
+              
+                @error('etnumber')
+                    <div class="fw-light text-danger" >
+                        {{$message}}
+
+                    </div>
+                @enderror
+            </div>
+
 
             
             <button type="submit" class="btn btn-success">Submit</button>

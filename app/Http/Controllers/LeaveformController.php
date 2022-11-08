@@ -18,7 +18,8 @@ class LeaveformController extends Controller
 
     public function index()
     {
-        return view('leaveform');
+        $leaves = Leaves::all('LeaveType');
+        return view('leaveform', compact('leaves'));
     }
 
     public function store(Request $request)
