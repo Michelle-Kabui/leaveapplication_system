@@ -77,13 +77,13 @@
                 </select>
             </div>
 
-            <div class="form-group mb-3">
+            {{-- <div class="form-group mb-3">
                 <label for="av_days">Number Of Available Leave Days</label>
                 <input type="number" class="form-control" id="av_days" name="av_days" value="30" >
               
-            </div>
+            </div> --}}
             
-            <div class="form-group mb-3">
+            {{-- <div class="form-group mb-3">
                 <label for="password">Password</label>
                 <input type="password" class="form-control @error('password') border border-danger @enderror" id="password" name="password" >
             
@@ -104,7 +104,7 @@
 
                     </div>
                 @enderror
-            </div>
+            </div> --}}
 
             
             <button type="submit" class="btn btn-success">Submit</button>

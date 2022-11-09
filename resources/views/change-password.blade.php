@@ -2,10 +2,7 @@
 
 @section('content')
 
-<div class="py-5">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
+<div class="container-fluid px-4">
 
                 @if (session('message'))
                     <h5 class="alert alert-success mb-2">{{ session('message') }}</h5>
@@ -19,9 +16,9 @@
                 </ul>
                 @endif
 
-                <div class="card shadow">
-                    <div class="card-header bg-primary">
-                        <h4 class="mb-0 text-white">Change Password</h4>
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h4 class="mt-4">Change Password</h4>
                     </div>
                     <div class="card-body">
                         <form action="{{ url('change-password') }}" method="POST">
@@ -44,10 +41,8 @@
                             </div>
                         </form>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                </div>      
+    
 </div>
 
 @endsection

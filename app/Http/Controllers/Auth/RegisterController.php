@@ -29,22 +29,22 @@ class RegisterController extends Controller
             'name'=> 'required|max:255',
             'username'=> 'required|max:255',
             'email'=> 'required|max:255',
-            'password'=> 'required|confirmed',
             'department'=> 'required|max:255',
-            'av_days'=> 'required|max:255',
             'role_as'=> 'nullable|max:255',
 
         ]);
 
         $userstatus = 'active';
+        $defaultpass = '123';
+        $defaultdays = '30';
         User::create(
             [
                 'name' => $request -> name,
                 'email' => $request -> email,
                 'username' => $request -> username,
                 'department' => $request -> department,
-                'av_days' => $request -> av_days,
-                'password' => Hash::make($request -> password),
+                'av_days' => $defaultdays,
+                'password' => Hash::make($defaultpass),
                 'role_as' => $request -> role_as,
                 'status' => $userstatus,
             ]

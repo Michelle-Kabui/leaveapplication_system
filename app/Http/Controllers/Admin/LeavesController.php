@@ -60,4 +60,10 @@ class LeavesController extends Controller
         $users = DB::select('select * from leaveforms where status = "approved" ');
         return view('admin.leave.viewaleaves',['users'=>$users]);
     }
+
+    public function destroy($id){
+        DB::delete('delete from leaveforms where id = ?',[$id]);
+        return redirect('admin/leave')->with('status','Leave Type deleted successfully');
+
+    }
 }

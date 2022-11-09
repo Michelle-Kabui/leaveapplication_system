@@ -8,12 +8,13 @@
 </head>
 <body>
 
-<div>
-    
-</div>
-<div class="p-4 card-body">
+<div class="container-fluid px-4">
 
+<div class="card-header">
 <h1>ALL LEAVES</h1>
+</div>
+
+<div class="card-body">
 <table border = "0" class="table table-striped">
 <tr>
 <td> ID</td>
@@ -29,11 +30,12 @@
     <a href="#" class="btn btn-success">Edit</a>
 </td>
 <td>
-    <a href="#" class="btn btn-danger">Delete</a>
+    <a href="{{url('admin/delete-leave/'.$leave->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure You want to delete leave type:[{{$leave->LeaveType}}] from the system ')">Delete</a>
 </td>
 </tr>
 @endforeach
 </table>
+</div>
 </div>
 
 </body>

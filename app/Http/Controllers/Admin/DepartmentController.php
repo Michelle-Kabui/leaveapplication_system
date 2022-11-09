@@ -37,5 +37,9 @@ class DepartmentController extends Controller
         
         
     }
+    public function destroy($id){
+        DB::delete('delete from departments where id = ?',[$id]);
+        return redirect('admin/department')->with('status','Department deleted successfully');
+    }
 
 }
