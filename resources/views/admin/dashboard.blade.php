@@ -45,7 +45,7 @@
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">
                                         Total Pending Leaves
-                                        <h3>{{$pleaves}}</h3>
+                                        <h3>{{$pleaves}}</h3>   
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="{{url('admin/viewpleaves')}}">View Details</a>
@@ -88,7 +88,7 @@
                                 @endphp
                                 @foreach($usersArray as $user)
                                     @php
-                                    if ($user->department == 'Finance') {
+                                    if ($user->department == $department->departmentname) {
 
                                         $count = $count + 1;
                                     }
