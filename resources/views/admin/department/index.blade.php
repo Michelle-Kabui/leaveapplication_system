@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-<!DOCTPE html>
 <html>
 <head>
 <title>View All Departments</title>
