@@ -13,4 +13,8 @@ class Departments extends Model
         'departmentname',
         'shortform',
     ];
+
+    public function users(){
+        return $this-> hasMany(User::class);
+    }
 }
