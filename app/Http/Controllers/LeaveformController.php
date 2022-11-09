@@ -44,6 +44,9 @@ class LeaveformController extends Controller
                     return back()->with('status', 'Please select valid dates');   
                 }
 
+                //Model::where('id', 1)->value('name');
+                $leaveduration = Leaves::where('LeaveType', $request->leavetype)->value('Duration');
+
                 
                     if($request->leavetype == "Maternity Leave"){
                         if($dayss>90){
@@ -55,11 +58,14 @@ class LeaveformController extends Controller
                             return back()->with('status', 'You have exceeded your available leave days');
                         }
                     }
-                    else{
-                        if($dayss>auth()->user()->av_days){
+                    else if($dayss>auth()->user()->av_days){
                             return back()->with('status', 'You have exceeded your available leave days');
                         }
-                    } 
+                    else{
+                        if($dayss>$leaveduration){
+                            return back()->with('status', 'You have selected days exceeding the set maximum duration');
+                        }
+                    }
 
                     $nn = Leaveform::where('email',auth()->user()->email)->where("status","pending")->count();
                     if(auth()->user()->status=="active"){
