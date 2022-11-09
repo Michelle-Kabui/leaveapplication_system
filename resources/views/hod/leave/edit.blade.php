@@ -1,9 +1,13 @@
 @extends('layouts.master2')
 
 @section('content')
-    
-    <div class="p-3">
+<div class="container-fluid px-4">
+
+    <div class="card mt-4">
+        <div class="card-header">
         <h1>LEAVE FORM</h1>
+        </div>
+        <div class="card-body">
         <div class="fw-light text-danger">
             @if (session('status'))
             {{ session('status') }}
@@ -103,5 +107,7 @@
 
         </form>
 
+        </div>
+    </div>
     </div>
 @endsection

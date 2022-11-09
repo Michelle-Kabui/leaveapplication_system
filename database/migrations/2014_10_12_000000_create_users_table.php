@@ -23,6 +23,17 @@ return new class extends Migration
             $table->integer("av_days");
             $table->rememberToken();
             $table->timestamps();
+            $table->string("username");
+            $table->enum('role_as', ['0', '1', '2'])->default('0');
+            $table->string("status")->default('active');
+            $table->integer("tnumber")->nullable();
+            $table->string("address")->nullable();
+            $table->string("gender")->nullable();
+            $table->string("nationality")->nullable();
+            $table->integer("IDno")->nullable();
+            $table->string("ename")->nullable();
+            $table->integer("etnumber")->nullable();
+
         });
     }
 

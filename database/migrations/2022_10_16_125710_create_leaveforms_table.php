@@ -22,6 +22,7 @@ return new class extends Migration
             $table->date('to_date');
             $table->text('description');
             $table->string('status');
+            $table->string('department');
             $table->string('adminRemarks');
             $table->integer('numDays');
             $table->timestamps();

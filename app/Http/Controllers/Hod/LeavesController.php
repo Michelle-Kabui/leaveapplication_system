@@ -64,6 +64,10 @@ class LeavesController extends Controller
             $av_days = DB::table('users')->where('email', '=', Leaveform::find($id)->email)->value('av_days');
 
             //find date diff
+            if((Leaveform::find($id)->leavetype)=="Maternity Leave" || (Leaveform::find($id)->leavetype)=="Paternity Leave"){
+                $dayss = 0;
+            }
+
             $dayss = intval(($end_date - $start_date)/60/60/24);
 
             //available days after approving leave
@@ -71,12 +75,12 @@ class LeavesController extends Controller
             
             //update db
             DB::table('users')
-                    ->where('email', Leaveform::find($id)->email)
-                    ->update(['av_days' => $days_left]);
+                ->where('email', Leaveform::find($id)->email)
+                ->update(['av_days' => $days_left]);
 
             DB::table('users')
-                    ->where('email', Leaveform::find($id)->email)
-                    ->update(['status' => "away"]);
+                ->where('email', Leaveform::find($id)->email)
+                ->update(['status' => "away"]);
 
             //approving
             $leave -> status = "approved"; //Approved

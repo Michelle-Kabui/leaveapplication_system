@@ -32,4 +32,10 @@ class ViewhodController extends Controller
 
         return redirect('admin/viewhod')->with('status','HOD details edited successfully');
     }
+
+    public function destroy($id){
+        DB::delete('delete from users where id = ?',[$id]);
+        return redirect('admin/viewhod')->with('status','HOD deleted successfully');
+
+    }
 }

@@ -8,6 +8,11 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/my.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('assets/css/styles.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/my.css')}}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
 
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
@@ -46,7 +51,7 @@
     @auth
       
       <li class="nav-item">
-        <a class="nav-link" href="#">[ {{ auth()->user()->name }} ]</a>
+        <a class="nav-link" href="{{url('profile')}}">[ {{ auth()->user()->name }} ]</a>
       </li>
       <li class="nav-item">
         <form action="{{route('logout')}}" method="post">
@@ -68,8 +73,28 @@
       
 </ul>
 </nav>
+<div id="layoutSidenav">
 
+    @include('layouts.inc3.admin-sidebar')
+    <div id="layoutSidenav_content">
+                <main>
 
-    @yield('content')
+                    @yield('content')
+
+                </main>
+                @include('layouts.inc3.admin-footer')
+    </div>
+</div>
+
+<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/js/scripts.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="assets/demo/chart-area-demo.js"></script>
+<script src="assets/demo/chart-bar-demo.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+<script src="js/datatables-simple-demo.js"></script>
+
+@yield('scripts')
+
 </body>
 </html>

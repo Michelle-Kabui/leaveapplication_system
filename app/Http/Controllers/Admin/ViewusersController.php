@@ -40,4 +40,9 @@ class ViewusersController extends Controller
         $users = DB::select('select * from users where status="active"');
         return view('admin.users.viewatwork',['users'=>$users]);
     }
+
+    public function destroy($id){
+        DB::delete('delete from users where id = ?',[$id]);
+        return redirect('admin/viewusers')->with('status','User deleted successfully');
+    }
 }

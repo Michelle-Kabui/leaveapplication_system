@@ -50,8 +50,15 @@
             </div>
             <div class="form-group mb-3">
                 <label for="department">Department</label>
-                <input type="text" class="form-control @error('department') border border-danger @enderror" id="department" name="department" >
-              
+                {{-- <input type="text" class="form-control @error('department') border border-danger @enderror" id="department" name="department" > --}}
+                {{-- {!! Form::select('departmentname', $departments, ['class' => 'form-control m-bot15']) !!} --}}
+
+                <select name="department" id="department">
+                    @foreach ($departments as $department)
+                        <option value="{{$department->departmentname}}">{{$department->departmentname}}</option>
+                    @endforeach
+                </select>
+                
                 @error('department')
                     <div class="fw-light text-danger" >
                         {{$message}}
@@ -70,13 +77,13 @@
                 </select>
             </div>
 
-            <div class="form-group mb-3">
+            {{-- <div class="form-group mb-3">
                 <label for="av_days">Number Of Available Leave Days</label>
                 <input type="number" class="form-control" id="av_days" name="av_days" value="30" >
               
-            </div>
+            </div> --}}
             
-            <div class="form-group mb-3">
+            {{-- <div class="form-group mb-3">
                 <label for="password">Password</label>
                 <input type="password" class="form-control @error('password') border border-danger @enderror" id="password" name="password" >
             
@@ -97,7 +104,7 @@
 
                     </div>
                 @enderror
-            </div>
+            </div> --}}
 
             
             <button type="submit" class="btn btn-success">Submit</button>

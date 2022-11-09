@@ -8,9 +8,13 @@
 </head>
 <body>
 
-<div class="p-4">
+<div class="container-fluid px-4">
 
+<div class="card-header">
 <h1>ALL REJECTED LEAVE APPLICATIONS</h1>
+</div>
+
+<div class="card-body">
 <table border = "0" class="table table-striped">
 <tr>
 <td>User ID</td>
@@ -37,6 +41,7 @@
 </tr>
 @endforeach
 </table>
+</div>
 </div>
 
 </body>

@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Leaveform;
-
 class AdminDashboardController extends Controller
 {
     public function index(){
@@ -22,7 +21,11 @@ class AdminDashboardController extends Controller
         $departments = DB::select('select * from departments');
 
 
+<<<<<<< HEAD
 
         return view('admin.dashboard', compact('users','aleaves','pleaves','rleaves','onleave','atwork'), ['departments'=>$departments, 'usersArray'=>$usersArray, 'leaves'=>$leaves]);
+=======
+        return view('admin.dashboard', compact('users','aleaves','pleaves','rleaves','onleave','atwork'));
+>>>>>>> c4a03b768f7dbf297d6279655356ee7a95fcf70b
     }
 }

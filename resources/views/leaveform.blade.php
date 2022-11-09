@@ -9,9 +9,13 @@
     
 
     ?>
-    
-    <div class="p-3">
+<div class="container-fluid px-4">    
+    <div class="card mt-4">
+        <div class="card-header">
         <h1>LEAVE FORM</h1>
+        </div>
+
+        <div class="card-body">
         <div class="fw-light text-danger">
             @if (session('status'))
             {{ session('status') }}
@@ -41,12 +45,10 @@
 
             <div class="form-group mb-3">
                 <label for="leavetype">Leave Type</label>
-                <select name="leavetype" id="leavetype" class="form-control @error('username') border border-danger @enderror">
-                    <option value="Casual Leave">Casual Leave</option>
-                    <option value="Sick Leave">Sick Leave</option>
-                    <option value="Maternity Leave">Maternity Leave</option>
-                    <option value="Paternity Leave">Paternity Leave</option>
-                    <option value="Compensatory Leave">Compensatory Leave</option>
+                <select name="leavetype" id="leavetype">
+                    @foreach ($leaves as $leave)
+                        <option value="{{$leave->LeaveType}}">{{$leave->LeaveType}}</option>
+                    @endforeach
                 </select>
               
                 @error('leavetype')
@@ -94,9 +96,9 @@
                 @enderror
             </div>
             <div class="form-group mb-3">
-                <label for="status">Status</label>
+                <label for="status" hidden>Status</label>
                 <input type="text" class="form-control" id="status" name="status"
-                value="pending" >
+                value="pending" hidden>
             </div>
 
 
@@ -105,6 +107,8 @@
             <button type="reset" class="btn btn-danger">Cancel</button>
 
         </form>
-
     </div>
+</div>
+
+</div>
 @endsection
