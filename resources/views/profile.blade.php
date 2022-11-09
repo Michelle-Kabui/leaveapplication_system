@@ -15,7 +15,7 @@
                 {{ session('status') }}
             @endif
         </div>
-        <form action="{{url('update-user')}}" method="post">
+        <form action="{{url('update-user')}}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }} 
             @method('PUT')
             <div class="form-group mb-3">
@@ -56,6 +56,17 @@
                 <input type="text" class="form-control @error('department') border border-danger @enderror" id="department" name="department" value="{{auth()->user()->department}}" disabled>
               
                 @error('department')
+                    <div class="fw-light text-danger" >
+                        {{$message}}
+
+                    </div>
+                @enderror
+            </div>
+            <div class="form-group mb-3">
+                <label for="picture">Picture</label>
+                <input type="file" class="form-control @error('picture') border border-danger @enderror" id="picture" name="picture" value="{{auth()->user()->picture}}" >
+              
+                @error('picture')
                     <div class="fw-light text-danger" >
                         {{$message}}
 

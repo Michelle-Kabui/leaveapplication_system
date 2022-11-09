@@ -24,6 +24,17 @@ class UserController extends Controller
         $userr -> IDno = $request -> IDno;
         $userr -> ename = $request -> ename;
         $userr -> etnumber = $request -> etnumber;
+
+        if($request->hasfile('picture')){
+
+            $file = $request->file('picture');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('uploads/users/',$filename);
+            $userr->picture = $filename;
+        }
+
+
         $userr->save();
 
         return redirect('profile')->with('status','User details edited successfully');

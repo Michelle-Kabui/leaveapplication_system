@@ -13,7 +13,7 @@
                         </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
+                                <div class="card bg-secondary text-white mb-4">
                                     <div class="card-body">
                                         Department
                                         <h3>{{auth()->user()->department}}</h3>
@@ -25,7 +25,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
+                                <div class="card bg-secondary text-white mb-4">
                                     <div class="card-body">
                                         Leave Days left
                                         <h3>{{auth()->user()->av_days}}</h3>
@@ -37,7 +37,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
+                                <div class="card bg-secondary text-white mb-4">
                                     <div class="card-body">
                                         Leave Days Taken
                                         <h3>{{$daystaken}}</h3>
@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
+                                <div class="card bg-secondary text-white mb-4">
                                     <div class="card-body">
                                         Status
                                         <h3>{{auth()->user()->status}}</h3>

@@ -19,15 +19,13 @@
 <h1>ALL DEPARTMENTS</h1>
 </div>
 <div class="card-body">
-<table border = "0" class="table table-striped">
+<table border = "2" class="table table-striped table-bordered ">
 <tr>
-<td> ID</td>
 <td>Department Name</td>
 <td>Shortform</td>
 </tr>
 @foreach ($departments as $department)
 <tr>
-<td>{{ $department->id }}</td>
 <td>{{ $department->departmentname }}</td>
 <td>{{ $department->shortform }}</td>
 <td>

@@ -15,7 +15,7 @@
 </div>
 
 <div class="card-body">
-<table border = "0" class="table table-striped">
+<table border = "2" class="table table-striped table-bordered ">
 <tr>
 <td>User ID</td>
 <td>Email</td>
