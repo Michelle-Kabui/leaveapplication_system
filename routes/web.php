@@ -49,6 +49,8 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::get('/add-department', ('App\Http\Controllers\Admin\DepartmentController@create'));
     Route::post('/add-department', ('App\Http\Controllers\Admin\DepartmentController@store'));
     Route::get('/delete-department/{id}',('App\Http\Controllers\Admin\DepartmentController@destroy'));
+    Route::put('/update-department/{id}', 'App\Http\Controllers\Admin\DepartmentController@update'); // Update leave details
+    Route::get('/edit-department/{id}', 'App\Http\Controllers\Admin\DepartmentController@edit'); // Edit leave details
 
     Route::get('/add-leave', ('App\Http\Controllers\Admin\LeavesController@create'));
     Route::post('/add-leave', ('App\Http\Controllers\Admin\LeavesController@store'));
@@ -58,6 +60,8 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::get('/viewaleaves', 'App\Http\Controllers\Admin\LeavesController@aleaves'); //view approved leaves only
     Route::get('/viewrleaves', 'App\Http\Controllers\Admin\LeavesController@rleaves'); //view rejected leaves only
     Route::get('/delete-leave/{id}',('App\Http\Controllers\Admin\LeavesController@destroy'));
+    Route::put('/update-leave/{id}', 'App\Http\Controllers\Admin\LeavesController@update'); // Update leave details
+    Route::get('/edit-leave/{id}', 'App\Http\Controllers\Admin\LeavesController@edit'); // Edit leave details
 
     Route::get('/viewhod', 'App\Http\Controllers\Admin\ViewhodController@index'); // View hod's only
     Route::get('/edit-hod/{id}', 'App\Http\Controllers\Admin\ViewhodController@edit'); // Edit Staff member details

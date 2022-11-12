@@ -42,4 +42,19 @@ class DepartmentController extends Controller
         return redirect('admin/department')->with('status','Department deleted successfully');
     }
 
+    public function edit($id){
+        $department = Departments::find($id);
+        return view('admin.department.edit', compact('department'));
+
+    }
+    public function update(Request $request, $id){
+        
+        $department = Departments::find($id);
+        $department -> departmentname = $request -> departmentname;
+        $department -> shortform = $request -> shortform;
+        $department->save();
+
+        return redirect('admin/department')->with('status','Department details edited successfully');
+    }
+
 }
