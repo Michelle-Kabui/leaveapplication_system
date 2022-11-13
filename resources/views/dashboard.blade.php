@@ -6,15 +6,12 @@
             {{ session('status') }}
         @endif
     </div>
-<<<<<<< HEAD
-    <div class="container-fluid px-4 dashboard-container">
-=======
-    @if (session('message'))
+@if (session('message'))
         <h5 class="alert alert-success mb-2">{{ session('message') }}</h5>
         @endif
-    <div class="container-fluid px-4">
+
+    <div class="container-fluid px-4 dashboard-container">
         
->>>>>>> 1756efd7fd3f5c4ebbeb7f015f28f81726bd5b60
                         <h1 class="mt-4">Dashboard</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>

@@ -7,7 +7,7 @@
 <div class="container-fluid px-4 dashboard-container">
 
     
-                        <h1 class="mt-4 dashboard-heading">Dashboard</h1>
+                        <h1 class="mt-4 dashboard-heading">ADMIN </h1>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-secondary text-white mb-4">
