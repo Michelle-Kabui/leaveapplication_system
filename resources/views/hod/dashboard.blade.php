@@ -1,10 +1,11 @@
 @extends('layouts.master2')
 
 @section('content')
+
 @if (session('message'))
         <h5 class="alert alert-success mb-2">{{ session('message') }}</h5>
     @endif
-<div class="container-fluid px-4">
+<div class="container-fluid px-4 dashboard-container">
     
                         <h1 class="mt-4">{{auth()->user()->department}} DEPARTMENT</h1>
                         <ol class="breadcrumb mb-4">

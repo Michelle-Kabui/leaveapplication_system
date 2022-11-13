@@ -61,7 +61,7 @@
                                 <div class="card bg-secondary text-white mb-4">
                                     <div class="card-body">
                                         Total Pending Leaves
-                                        <h3>{{$pleaves}}</h3>
+                                        <h3>{{$pleaves}}</h3>   
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="{{url('admin/viewpleaves')}}">View Details</a>
@@ -96,20 +96,39 @@
                         </div>
                         <div class="departments">
                             <h1>Departments</h1>
-                            @foreach ($departments as $department)
-                            <div class="department">
-                                <h1>{{ $department->departmentname }} staff at work</h1>
-                                @php
-                                $count = 0;
-                                @endphp
-                                @foreach($usersArray as $user)
+                            <div class="owl-carousel owl-theme">
+                                @foreach ($departments as $department)
+                                <div class="department item">
+                                    <h1>{{ $department->departmentname }} staff at work</h1>
                                     @php
+<<<<<<< HEAD
+                                    $count = 0;
+=======
                                     if ($user->department == $department->departmentname) {
 
                                         $count = $count + 1;
                                     }
+>>>>>>> 1756efd7fd3f5c4ebbeb7f015f28f81726bd5b60
                                     @endphp
+                                    @foreach($usersArray as $user)
+                                        @php
+                                        if ($user->department == $department->departmentname) {
+
+                                            $count = $count + 1;
+                                        }
+                                        @endphp
+                                    @endforeach
+                                    @php
+                                    $totalUsers = $usersArray->count();
+                                    @endphp
+                                    <p>{{$count}} Employees | {{$count/$totalUsers*100}}% </p>
+                                    <div class="percent" style="width: 10vw;">
+                                        <div class="percent-child" style="width:{{$count/$totalUsers*10 }}vw"></div>
+                                    </div>
+                                </div>
                                 @endforeach
+<<<<<<< HEAD
+=======
                                 @php
                                 $totalUsers = $usersArray->count();
                                 @endphp
@@ -156,6 +175,7 @@
                             </div>
                             <div class="graph-description">
                                 <h1>No. of Employees on Leave</h1>
+>>>>>>> 1756efd7fd3f5c4ebbeb7f015f28f81726bd5b60
                             </div>
                         </div>
                     </div>

@@ -24,3 +24,27 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+const nextIcon = '<img class="nav-arrow" src="../arrow-right.png" alt:"right">';
+const prevIcon = '<img class="nav-arrow" src="../arrow-left.png" alt:"left">';
+
+$('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    nav:true,
+    navText: [
+        prevIcon,
+        nextIcon
+    ],
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:1
+        },
+        1000:{
+            items:1
+        }
+    }
+})
