@@ -9,25 +9,28 @@
 <body>
 
 <div class="container-fluid px-4">
+    <div class="text-success">
+        @if (session('status'))
+            {{ session('status') }}
+        @endif
+    </div>
 
 <div class="card-header">
-<h1>ALL LEAVES</h1>
+<h1>ALL LEAVE TYPES</h1>
 </div>
 
 <div class="card-body">
-<table border = "0" class="table table-striped">
+<table border = "2" class="table table-striped table-bordered ">
 <tr>
-<td> ID</td>
 <td>Leave Type</td>
 <td>Duration</td>
 </tr>
 @foreach ($leaves as $leave)
 <tr>
-<td>{{ $leave->id }}</td>
 <td>{{ $leave->LeaveType }}</td>
 <td>{{ $leave->Duration }}</td>
 <td>
-    <a href="#" class="btn btn-success">Edit</a>
+    <a href="{{url('admin/edit-leave/'.$leave->id)}}" class="btn btn-success">Edit</a>
 </td>
 <td>
     <a href="{{url('admin/delete-leave/'.$leave->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure You want to delete leave type:[{{$leave->LeaveType}}] from the system ')">Delete</a>

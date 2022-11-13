@@ -19,7 +19,7 @@
     </div>
     <div class="card-body">
         <div class="">
-            <table border = "0" class="table table-striped">
+            <table border = "2" class="table table-striped table-bordered ">
             <tr>
                 <td hidden>ID</td>
                 <td>Name</td>

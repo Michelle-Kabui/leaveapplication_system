@@ -18,7 +18,7 @@
 <h1>ALL DEPARTMENT HEADS</h1>
 </div>
 <div class="card-body">
-<table border = "0" class="table table-striped">
+<table border = "2" class="table table-striped table-bordered ">
 <tr>
 <td>Name</td>
 <td>Email</td>

@@ -11,6 +11,7 @@ class AdminDashboardController extends Controller
 {
     public function index(){
         $users = User::where('role_as','0')->count();
+        $managers = User::where('role_as','2')->count();
         $usersArray = DB::table('users')->get(); 
         $leaves = DB::table('leaveforms')->get();
         $aleaves = Leaveform::where('status','approved')->count();
@@ -22,6 +23,11 @@ class AdminDashboardController extends Controller
 
 
 
+<<<<<<< HEAD
         return view('admin.dashboard', compact('users','aleaves','pleaves','rleaves','onleave','atwork'), ['departments'=>$departments, 'usersArray'=>$usersArray, 'leaves'=>$leaves]);
+=======
+        return view('admin.dashboard', compact('users','aleaves','pleaves','rleaves','onleave','atwork','managers'), ['departments'=>$departments, 'usersArray'=>$usersArray, 'leaves'=>$leaves]);
+
+>>>>>>> 1756efd7fd3f5c4ebbeb7f015f28f81726bd5b60
     }
 }

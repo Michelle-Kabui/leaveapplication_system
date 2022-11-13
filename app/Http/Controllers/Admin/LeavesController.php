@@ -66,4 +66,18 @@ class LeavesController extends Controller
         return redirect('admin/leave')->with('status','Leave Type deleted successfully');
 
     }
+    public function edit($id){
+        $leave = Leaves::find($id);
+        return view('admin.leave.edit', compact('leave'));
+
+    }
+    public function update(Request $request, $id){
+        
+                $leavee = Leaves::find($id);
+                $leavee -> LeaveType = $request -> LeaveType;
+                $leavee -> Duration = $request -> Duration;
+                $leavee->save();
+
+        return redirect('admin/leave')->with('status','Leave Type details edited successfully');
+    }
 }
