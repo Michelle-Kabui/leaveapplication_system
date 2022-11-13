@@ -1,8 +1,12 @@
 @extends('layouts.master')
 
 @section('content')
-
+@if (session('message'))
+        <h5 class="alert alert-success mb-2">{{ session('message') }}</h5>
+    @endif
 <div class="container-fluid px-4 dashboard-container">
+
+    
                         <h1 class="mt-4 dashboard-heading">Dashboard</h1>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">

@@ -6,7 +6,11 @@
             {{ session('status') }}
         @endif
     </div>
+    @if (session('message'))
+        <h5 class="alert alert-success mb-2">{{ session('message') }}</h5>
+        @endif
     <div class="container-fluid px-4">
+        
                         <h1 class="mt-4">Dashboard</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
