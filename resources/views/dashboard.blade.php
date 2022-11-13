@@ -6,7 +6,7 @@
             {{ session('status') }}
         @endif
     </div>
-    <div class="container-fluid px-4">
+    <div class="container-fluid px-4 dashboard-container">
                         <h1 class="mt-4">Dashboard</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>

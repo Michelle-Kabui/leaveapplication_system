@@ -80,67 +80,30 @@
                         </div>
                         <div class="departments">
                             <h1>Departments</h1>
-                            @foreach ($departments as $department)
-                            <div class="department">
-                                <h1>{{ $department->departmentname }} staff at work</h1>
-                                @php
-                                $count = 0;
-                                @endphp
-                                @foreach($usersArray as $user)
+                            <div class="owl-carousel owl-theme">
+                                @foreach ($departments as $department)
+                                <div class="department item">
+                                    <h1>{{ $department->departmentname }} staff at work</h1>
                                     @php
-                                    if ($user->department == $department->departmentname) {
-
-                                        $count = $count + 1;
-                                    }
+                                    $count = 0;
                                     @endphp
+                                    @foreach($usersArray as $user)
+                                        @php
+                                        if ($user->department == $department->departmentname) {
+
+                                            $count = $count + 1;
+                                        }
+                                        @endphp
+                                    @endforeach
+                                    @php
+                                    $totalUsers = $usersArray->count();
+                                    @endphp
+                                    <p>{{$count}} Employees | {{$count/$totalUsers*100}}% </p>
+                                    <div class="percent" style="width: 10vw;">
+                                        <div class="percent-child" style="width:{{$count/$totalUsers*10 }}vw"></div>
+                                    </div>
+                                </div>
                                 @endforeach
-                                @php
-                                $totalUsers = $usersArray->count();
-                                @endphp
-                                <p>{{$count}} Employees | {{$count/$totalUsers*100}}% </p>
-                                <div class="percent" style="width: 10vw;">
-                                    <div class="percent-child" style="width:{{$count/$totalUsers*10 }}vw"></div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                        @php
-                        $novCount = 0;
-                        foreach($leaves as $leave) {
-                            if(str_contains($leave->from_date, '-11-')){
-                                $novCount++;
-                            }
-                        }
-                        
-                        @endphp
-                        <div class="employee-graph">
-                            <div class="graph">
-                                <div class="y-scale">
-                                    <p>60</p>
-                                    <p>50</p>
-                                    <p>40</p>
-                                    <p>30</p>
-                                    <p>20</p>
-                                    <p>10</p>
-                                    <p>0</p>
-                                </div>
-                                <div class="bars-and-x-scale">
-                                    <div class="bars">
-                                        <div class="aug" style="height: 5vh; width: 3vw; background-color: #001535; border-radius: 10px; margin: 0 2vw;"></div>
-                                        <div class="sep" style="height: 10vh; width: 3vw; background-color: #001535; border-radius: 10px; margin: 0 2vw;"></div>
-                                        <div class="oct" style="height: 5vh; width: 3vw; background-color: #001535; border-radius: 10px; margin: 0 2vw;"></div>
-                                        <div class="nov" style="width: 3vw; background-color: #a4b31d; border-radius: 10px; margin: 0 2vw;height: {{ $novCount }}"></div>
-                                    </div>
-                                    <div class="x-scale">
-                                        <p>Aug</p>
-                                        <p>Sep</p>
-                                        <p>Oct</p>
-                                        <p>Nov</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="graph-description">
-                                <h1>No. of Employees on Leave</h1>
                             </div>
                         </div>
                     </div>
