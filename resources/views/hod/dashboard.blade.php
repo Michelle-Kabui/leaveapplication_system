@@ -6,13 +6,13 @@
     @endif
 <div class="container-fluid px-4">
     
-                        <h1 class="mt-4">Dashboard</h1>
+                        <h1 class="mt-4">{{auth()->user()->department}} DEPARTMENT</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
+                                <div class="card bg-secondary text-white mb-4">
                                     <div class="card-body">
                                         Total Employees
                                         <h3>{{$users}}</h3>
@@ -24,7 +24,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
+                                <div class="card bg-secondary text-white mb-4">
                                     <div class="card-body">
                                         Employees on Leave
                                         <h3>{{$onleave}}</h3>
@@ -36,7 +36,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
+                                <div class="card bg-secondary text-white mb-4">
                                     <div class="card-body">
                                         Employees at work
                                         <h3>{{$atwork}}</h3>
@@ -48,7 +48,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
+                                <div class="card bg-secondary text-white mb-4">
                                     <div class="card-body">
                                         Pending Leaves
                                         <h3>{{$pleaves}}</h3>
@@ -60,23 +60,28 @@
                                 </div>
                             </div>
                         </div>
+                        <h3>WORK ENVIRONMENT</h3>
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        Area Chart Example
+                                        EMPLOYEES AT WORK RATIO:
                                     </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                                    <div class="card-body">
+                                        <h3>{{$ratio}}%</h3>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-bar me-1"></i>
-                                        Bar Chart Example
+                                        WORK ENVIRONMENT:
                                     </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                                    <div class="card-body">
+                                        <h3>{{$environment}}</h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>

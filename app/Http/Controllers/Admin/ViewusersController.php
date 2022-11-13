@@ -37,8 +37,12 @@ class ViewusersController extends Controller
         return view('admin.users.viewaway',['users'=>$users]);
     }
     public function active(Request $request){
-        $users = DB::select('select * from users where status="active"');
+        $users = DB::select('select * from users where status="active" and role_as="0"');
         return view('admin.users.viewatwork',['users'=>$users]);
+    }
+    public function mactive(Request $request){
+        $users = DB::select('select * from users where status="active" and role_as="2"');
+        return view('admin.users.viewmatwork',['users'=>$users]);
     }
 
     public function destroy($id){

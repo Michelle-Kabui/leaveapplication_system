@@ -21,8 +21,6 @@ class AdminDashboardController extends Controller
         $atwork = User::where('status','active')->count();
         $departments = DB::select('select * from departments');
 
-
-
         return view('admin.dashboard', compact('users','aleaves','pleaves','rleaves','onleave','atwork','managers'), ['departments'=>$departments, 'usersArray'=>$usersArray, 'leaves'=>$leaves]);
 
     }

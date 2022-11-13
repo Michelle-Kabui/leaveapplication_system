@@ -17,7 +17,19 @@ class HodDashboardController extends Controller
         $onleave = User::where('status','away')->where('department',auth()->user()->department)->where('role_as','0')->count();
         $atwork = User::where('status','active')->where('department',auth()->user()->department)->where('role_as','0')->count();
 
-        return view('hod.dashboard',compact('users','onleave','atwork','pleaves'));
+        $ratio = ($atwork/$users)*100;
+
+        if($ratio>60){
+            $environment = "HEALTHY";
+        }
+        else if($ratio<40){
+            $environment = "UNHEALTHY";
+        }
+        else{
+            $environment = "FAIR";
+        }
+
+        return view('hod.dashboard',compact('users','onleave','atwork','pleaves','ratio','environment'));
     }
 }
  

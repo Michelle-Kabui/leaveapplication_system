@@ -64,6 +64,7 @@ Route::prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::get('/edit-leave/{id}', 'App\Http\Controllers\Admin\LeavesController@edit'); // Edit leave details
 
     Route::get('/viewhod', 'App\Http\Controllers\Admin\ViewhodController@index'); // View hod's only
+    Route::get('/hodatwork', 'App\Http\Controllers\Admin\ViewusersController@mactive');// View active hod's
     Route::get('/edit-hod/{id}', 'App\Http\Controllers\Admin\ViewhodController@edit'); // Edit Staff member details
     Route::put('/update-hod/{id}', 'App\Http\Controllers\Admin\ViewhodController@update'); // Update member details
     Route::get('/delete-hod/{id}',('App\Http\Controllers\Admin\ViewhodController@destroy'));
